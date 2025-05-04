@@ -1,0 +1,664 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    scroll-behavior: smooth;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e1e1e;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+  
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+}
+  
+nav.navbar {
+    display: flex;
+}
+  
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+  
+nav ul li {
+    margin: 0 20px;
+}
+  
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: 0.3s ease;
+}
+  
+  /* Toggle Button */
+.toggle-btn {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+  
+  /* Responsive styles */
+@media (max-width: 768px) {
+.toggle-btn {
+     display: block;
+}
+  
+nav.navbar {
+      display: none;
+      flex-direction: column;
+      background-color: #1e1e1e;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+}
+  
+nav.navbar.active {
+      display: flex;
+}
+  
+nav ul {
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+}
+  
+nav ul li {
+      text-align: center;
+      margin: 10px 0;
+}
+  
+nav ul li a {
+      padding: 15px 0;
+      display: block;
+      width: 100%;
+    }
+}
+  
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background: url("../images/hero-bg.jpg") center/cover no-repeat;
+    position: relative;
+    color: white;
+}
+
+/* Dark Overlay for Background */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Profile Image */
+.profile-img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5%;
+    animation: fadeIn 1.5s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.profile-img img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(243, 156, 18, 0.4);  
+}
+/* Name & Title */
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    color: #f39c12;
+    margin-bottom: 15px;
+}
+
+/* Description */
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #bbb;
+}
+
+/* Typing Effect */
+.typing-text {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+.about {
+    text-align: center;
+    padding: 100px 20px;
+    background: #1e1e1e;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Animation */
+.about::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(243, 156, 18, 0.2);
+    border-radius: 50%;
+    animation: floating 5s infinite linear alternate;
+}
+
+.about::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 120px;
+    height: 120px;
+    background: rgba(243, 156, 18, 0.2);
+    border-radius: 50%;
+    animation: floating 6s infinite linear alternate-reverse;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(30px); }
+}
+
+/* Layout */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Square Image with Hover Effect */
+.about-image img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(243, 156, 18, 0.4);
+}
+
+/* Content Styling */
+.about-content {
+    max-width: 600px;
+    text-align: left;
+    color: white;
+}
+
+.about-content h3 {
+    color: #f39c12;
+    font-size: 2em;
+}
+
+.about-content p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #bbb;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #f39c12;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-size: 1.1em;
+}
+
+.btn:hover {
+    background: #d68910;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+}
+/* Portfolio Section */
+.portfolio {
+    padding: 100px 20px;
+    background: #111111;
+    text-align: center;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.section-title span {
+    color: #f39c12;
+}
+
+/* Portfolio Filters */
+.portfolio-filters {
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background: #2c2c2c;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #f39c12;
+}
+
+#skills {
+    padding: 50px 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* Individual Skill */
+.skill {
+    margin: 20px 0;
+    text-align: left;
+}
+
+/* Skill Bar */
+.skill-bar {
+    width: 100%;
+    background: #222;
+    border-radius: 8px;
+    height: 20px;
+    overflow: hidden;
+    margin-top: 5px;
+    position: relative;
+}
+
+/* Skill Fill (Animated Progress) */
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff9900, #ff6600);
+    width: 0%;
+    transition: width 2s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 10px;
+}
+
+/* Hover Effect */
+.skill-fill:hover {
+    filter: brightness(1.3);
+    transition: 0.3s;
+}
+
+/* Percentage Text */
+.skill-fill span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    background: white;
+    padding: 2px 6px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Show Percentage on Hover */
+.skill-fill:hover span {
+    opacity: 1;
+}
+.resume {
+    text-align: center;
+    padding: 80px 20px;
+    background: #1e1e1e;
+}
+
+.resume-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #2c2c2c;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.resume-content p {
+    font-size: 1.1em;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.upload-btn, .download-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 10px;
+    background: #f39c12;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+.upload-btn:hover, .download-btn:hover {
+    background: #d68910;
+}
+
+.resume-preview {
+    margin: 15px 0;
+    padding: 10px;
+    background: #333;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .resume-content {
+        width: 90%;
+    }
+}
+
+.content, .contact{
+    padding: 80px 20px;
+    text-align: center;
+}
+.certifications {
+    text-align: center;
+    padding: 80px 20px;
+    background: #111111;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+    width: 100%;
+    flex: 0 0 100%;
+    max-height: 180px; /* Adjusted size */
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Dots for navigation */
+.dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    background: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: #f39c12;
+}
+
+.project-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+/* Contact Section */
+.contact {
+    text-align: center;
+    padding: 100px 20px;
+    background: #1e1e1e;
+    width: 100%;
+}
+
+/* Fix alignment issues */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Fix form width issue */
+.contact-form {
+    flex: 1;
+    min-width: 320px;
+    max-width: 450px; /* Prevents form from getting too wide */
+    background: #2c2c2c;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Input and Textarea Fix */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%; /* Ensures input stays inside the container */
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%; /* Fix input box going off-screen */
+    padding: 14px;
+    background: transparent;
+    border: 2px solid #f39c12;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box; /* Prevents overflowing */
+}
+
+/* Label Fix */
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #f39c12;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: white;
+}
+
+/* Fix Button */
+.send-btn {
+    width: 100%;
+    padding: 14px;
+    background: #f39c12;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.send-btn:hover {
+    background: #d68910;
+    transform: scale(1.05);
+}
+
+/* Fix Contact Info Box */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px; /* Prevents the box from getting too big */
+    background: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Fix Contact Info Text */
+.contact-info h3 {
+    color: #f39c12;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info p i {
+    color: #f39c12;
+    font-size: 1.2em;
+}
+
+/* Fully Responsive Fix */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-form,
+    .contact-info {
+        width: 90%; /* Ensures it fits inside small screens */
+        max-width: 100%; /* Prevents overflow */
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+}
+
+
